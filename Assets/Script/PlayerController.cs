@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private Camera mainCamera;
-
+      public ScoreManager scoreManager;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
                 {
                     // Implement score increase logic here
                     Debug.Log("Collected object!");
+                    scoreManager.IncreaseScore(10); // Increase score by 10
                     Destroy(hit.collider.gameObject);
                 }
             }
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
         {
             // Implement score increase logic here
             Debug.Log("Collected object!");
+            scoreManager.IncreaseScore(10); 
             Destroy(other.gameObject);
         }
     }
